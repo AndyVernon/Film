@@ -1,16 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import FilmRoutes from './Routes/FilmRoutes';
+import { FilmRouteType } from './Routes/FilmRoutes.types';
 import HomePage from './pages/HomePage/HomePage';
 import DetailsPage from './pages/DetailsPage/DetailsPage';
 
 const App: React.FC = () => {
+
+  const routes: FilmRouteType[] = [
+    { path: '/', element: <HomePage /> },
+    { path: '/details', element: <DetailsPage />}
+  ]
+
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/details' element={<DetailsPage />} />
-      </Routes>
-    </Router>
+    <FilmRoutes routes={routes}/>
   );
 };
 
